@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-ene-2009 13:55:07 by Hibernate Tools 3.2.4.CR1 -->
+<hibernate-mapping>
+    <class name="models.User" table="users" catalog="database">
+        <id name="username" type="string">
+            <column name="username" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="string">
+            <column name="password" length="40" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="30" not-null="true" />
+        </property>
+        <property name="surname1" type="string">
+            <column name="surname1" length="30" not-null="true" />
+        </property>
+        <property name="surname2" type="string">
+            <column name="surname2" length="30" not-null="true" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="60" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="60" not-null="true" />
+        </property>
+        <property name="enabled" type="boolean">
+            <column name="enabled" not-null="true" />
+        </property>
+       <set name="authoritieses" inverse="true">
+            <key>
+                <column name="username" length="20" not-null="true" />
+            </key>
+            <one-to-many class="models.Authorities" />
+        </set>
+    </class>
+    
+    <query name="query">
+		SELECT password
+		FROM models.User
+		WHERE username =:username
+	</query>
+</hibernate-mapping>

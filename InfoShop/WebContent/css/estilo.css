@@ -1,0 +1,254 @@
+
+/** Archivo principal con las propiedades básicas de estilos visuales  **/
+
+@import url("tablas.css");
+@import url("errores.css");
+
+.clear { clear: both; }
+.importante { font-size:13px; font-weight:bold;}
+
+body {
+	font-family:Verdana,Arial,Helvetica,sans-serif;
+	font-size:11px;
+	font-style:normal;
+	margin: 0px;
+	background: #333333;
+}
+
+ul {
+	list-style-image:url(../imagenes/bullet.gif);
+	list-style-position:outside;
+	*margin-left:35px;
+	
+}
+
+li {
+	clear:both;
+	margin-top:10px;
+}	
+
+#contenedor {		
+	max-width: 1000px;
+	min-width: 1000px;
+  	margin: auto;	
+}
+
+#cabecera {
+	background: #F3F3F3;	
+	margin-top: 0.4em;
+	width:100%;
+	float: left;  
+}
+
+#logo {
+	margin-top: 0.4em;
+	margin-bottom: 0.5em;
+	float: left; 
+}
+
+#menu {
+	width:16%; 
+	float: left; 
+	background: #F3F3F3;
+	margin-right:0.8em;
+}
+
+#menuContenido {
+	width:100%;
+	min-height:250px;	 
+	float: left;
+	clear:both;
+	background: #F3F3F3;
+}
+
+#texto {
+	width:97%;
+	margin:1em;
+	min-height:430px;
+	float: left;
+	clear:both;
+	background: #F3F3F3;
+}
+
+#contenido {
+	width:83%;  
+	float: left; 
+	background: #F3F3F3;
+}
+
+#pie {
+	float:left;
+	margin-top: .4em;
+	margin-bottom: .4em;
+	width:100%; 
+	background: #F3F3F3;
+}
+
+#pie .imagen {
+	margin-left: 1em;
+	float: left;
+}
+
+#pie .copyright {   
+	float: right; 
+	margin-top: 0.5em;  
+	margin-right: 2em; 
+	font-size:13px; 
+	font-weight:bold; 
+}
+
+a.link {
+	float:left;
+	background-color: #FFFFFF;
+	border:1px solid #DEDEDE;
+	cursor:pointer;
+	padding-right: 0.7em;
+	padding-left: 0.7em;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	font-size:11px;
+	font-weight:bold;
+	text-decoration:none;
+	color:#999900;
+	margin-right:1.5em;
+}
+	
+a.link:hover {
+    background-color:#E6EFC2;
+    border:1px solid #C6D880;
+    color:#999900;
+}
+
+.botones {	
+	float:left;
+	background-color: #FFFFFF;
+	border:1px solid #DEDEDE;
+	cursor:pointer;
+	padding-right: 0.5em;
+	padding-left: 0.5em;
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+	font-size:11px;
+	font-weight:bold;
+	text-decoration:none;
+	color:#999900;
+	margin-right:1.5em;
+}
+
+.botones:hover {
+    background-color:#E6EFC2;
+    border:1px solid #C6D880;
+    color:#999900;
+}
+
+
+.input {
+	border: 1px solid #000;;
+	background: #FFFFFF;
+	font-size:11px; 
+	font-weight:bold;
+	margin-right: 1.5em;
+	margin-top: 0.1em;
+	float:left;
+}
+
+.tituloPrincipal{
+	border-bottom:2px solid #766F53;
+	color:#766F53;
+	font-size:19px;
+	font-weight:lighter;
+	text-indent:15px;
+	margin-bottom:1em;
+}
+
+.tituloSecundario{
+	border-bottom:1px solid #766F53;
+	color:#766F53;
+	font-weight:bold;
+	margin-bottom:0.5em;
+	text-align:center;
+	width:100%;
+}
+
+.datosContenido{
+	font-size:13px; 
+	float: left;
+	margin-left:0.9em;
+}
+
+.textoCabecera{
+	float: left;
+	margin-right:0.5em;
+	margin-top:0.1em;
+}
+
+
+.textoFormulario{
+	width:15%;
+	float: left;
+	margin-left:0.5em;
+	margin-top:0.8em;
+	margin-right:0.5em;
+	font-size:12px;
+}
+
+.inputFormulario{
+	width:18%;
+	float: left;
+	margin-left:0.5em;
+	margin-top:0.5em;
+	margin-right:0.5em;
+	padding:0;
+}
+
+.textoUsuario2{
+	float: left;
+	margin-top:0.1em;
+	font-weight:bold;
+	font-size:15px; 
+	margin-left:0.5em;
+	margin-right:1em;
+	text-decoration:underline;
+}
+
+
+.noticia{
+	float:left;
+	font-size:12px;
+	margin:1.3em;
+	width:46%;
+}
+
+.noticia .titulo{
+	font-size:14px;
+	float:left;
+	font-weight:bold;
+	color:#766F53;
+}
+
+.noticia .texto{
+	text-align:justify;
+	width:99%;
+	float:left;
+	font-size:12px;
+	margin-top:0.5em;
+	clear:both;
+}
+
+.noticia .fecha{
+	float:right;
+	font-weight:bold;
+}
+
+
+.linkMenu {
+	color:#333333;
+	text-decoration:none;
+}
+
+.subMenu{
+	display:none;
+	visibility:hidden;
+	margin-left:-23px;
+	*margin-left:17px;
+}	

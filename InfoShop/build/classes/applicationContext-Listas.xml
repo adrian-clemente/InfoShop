@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean name="hibernateAdapter"
+		class="net.mlw.vlh.adapter.hibernate3" abstract="true">
+		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="defaultNumberPerPage" value="3"/>
+		<property name="defaultSortDirection" value="asc"/>
+		<property name="removeEmptyStrings" value="true"/>
+		<property name="focusOptimalization" value="false"/>
+	</bean>
+
+	<bean id="valueListHandler" singleton="true"
+		class="net.mlw.vlh.DefaultValueListHandlerImpl">
+		<property name="config.adapters">
+			<map>				
+				<entry key="prueba">
+					<bean parent="hibernateAdapter"> 
+						<property name="defaultSortColumn" value="gloNom"/> 
+						<property name="defaultNumberPerPage" value="2"/>					    
+						<property name="hql">
+							<value>																
+								FROM
+								models AS vo								
+								WHERE 1=1								
+							</value>
+						</property>
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>
+

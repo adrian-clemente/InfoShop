@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-abr-2009 23:18:09 by Hibernate Tools 3.2.4.CR1 -->
+<hibernate-mapping>
+    <class name="infoshop.Users" table="users" catalog="infoshop_schema">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="groups" class="infoshop.Groups" fetch="select">
+            <column name="USER_GROUP" not-null="true" />
+        </many-to-one>
+        <many-to-one name="authorityVO" class="java.model.AuthorityVO" fetch="select">
+            <column name="AUTHORITY" not-null="true" />
+        </many-to-one>
+        <property name="username" type="string">
+            <column name="USERNAME" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="15" not-null="true" />
+        </property>
+        <property name="enabled" type="byte">
+            <column name="ENABLED" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="45" />
+        </property>
+        <set name="adresseses" inverse="true">
+            <key>
+                <column name="USER_ID" not-null="true" />
+            </key>
+            <one-to-many class="infoshop.Adresses" />
+        </set>
+        <set name="purchaseses" inverse="true">
+            <key>
+                <column name="USER_ID" not-null="true" />
+            </key>
+            <one-to-many class="infoshop.Purchases" />
+        </set>
+        <set name="newses" inverse="true">
+            <key>
+                <column name="USER_ID" not-null="true" />
+            </key>
+            <one-to-many class="infoshop.News" />
+        </set>
+    </class>
+</hibernate-mapping>

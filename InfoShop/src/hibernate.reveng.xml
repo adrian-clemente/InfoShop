@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+	<type-mapping>
+		<sql-type jdbc-type="BIGINT" hibernate-type="long"></sql-type>
+	</type-mapping>
+	<table-filter match-name="adresses"
+		match-catalog="infoshop_schema">
+	</table-filter>
+	<table-filter match-name="authorities"
+		match-catalog="infoshop_schema">
+	</table-filter>
+	<table-filter match-name="cpus" match-catalog="infoshop_schema"></table-filter>
+	<table-filter match-name="groups" match-catalog="infoshop_schema"></table-filter>
+	<table-filter match-name="groups_authorities"
+		match-catalog="infoshop_schema">
+	</table-filter>
+	<table-filter match-name="incidents"
+		match-catalog="infoshop_schema">
+	</table-filter>
+	<table-filter match-name="monitors"
+		match-catalog="infoshop_schema">
+	</table-filter>
+	<table-filter match-name="news" match-catalog="infoshop_schema"></table-filter>
+	<table-filter match-name="products"
+		match-catalog="infoshop_schema">
+	</table-filter>
+	<table-filter match-name="purchases"
+		match-catalog="infoshop_schema">
+	</table-filter>
+	<table-filter match-name="purchases_products"
+		match-catalog="infoshop_schema">
+	</table-filter>
+	<table-filter match-name="users" match-catalog="infoshop_schema"></table-filter>
+
+
+
+	<table catalog="infoshop_schema" name="authorities"
+		class="java.model.AuthorityVO">
+		<primary-key>
+			<generator class="identity" />
+			<key-column name="id" />
+		</primary-key>
+	</table>
+
+
+
+
+</hibernate-reverse-engineering>

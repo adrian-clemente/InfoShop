@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-abr-2009 23:18:09 by Hibernate Tools 3.2.4.CR1 -->
+<hibernate-mapping>
+    <class name="infoshop.Products" table="products" catalog="infoshop_schema">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="50" not-null="true" unique="true" />
+        </property>
+        <property name="price" type="float">
+            <column name="PRICE" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="productType" type="string">
+            <column name="PRODUCT_TYPE" length="20" />
+        </property>
+        <property name="manufacturer" type="string">
+            <column name="MANUFACTURER" length="50" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="2048" />
+        </property>
+        <property name="quantity" type="int">
+            <column name="QUANTITY" not-null="true" />
+        </property>
+        <set name="cpuses" inverse="true">
+            <key>
+                <column name="PRODUCT" not-null="true" />
+            </key>
+            <one-to-many class="infoshop.Cpus" />
+        </set>
+        <set name="purchasesProductses" inverse="true">
+            <key>
+                <column name="PRODUCT_ID" not-null="true" />
+            </key>
+            <one-to-many class="infoshop.PurchasesProducts" />
+        </set>
+        <set name="monitorses" inverse="true">
+            <key>
+                <column name="PRODUCT" not-null="true" />
+            </key>
+            <one-to-many class="infoshop.Monitors" />
+        </set>
+    </class>
+</hibernate-mapping>

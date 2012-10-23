@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+  xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+    http://www.directwebremoting.org/schema/spring-dwr
+    http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
+
+	<bean id="prueba" class="actions.prueba">
+		<dwr:remote javascript="prueba">
+	    </dwr:remote>
+	</bean>
+	
+	
+	<bean name="/Productos" class="actions.Productos">
+		<property name="cpu" ref="cpu" />
+	</bean>
+
+
+	<bean name="/Registro" class="actions.Registro">
+		<property name="encryptation" ref="encryptation" />
+		<property name="user" ref="user" />
+		<property name="cpu" ref="cpu" />
+	</bean>
+
+	<bean id="user" class="models.bo.impl.UsuarioBOImpl">
+		  <property name="sessionFactory" ref="sessionFactory" />
+	</bean>	
+	
+	<bean id="cpu" class="models.bo.impl.CpuBOImpl">
+		  <property name="sessionFactory" ref="sessionFactory" />
+	</bean>	
+	
+	<bean id="encryptation" class="services.impl.EncryptationImpl"></bean>
+	
+	<bean id="log4jInitialization" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass"
+			value="org.springframework.util.Log4jConfigurer" />
+		<property name="targetMethod" value="initLogging" />
+		<property name="arguments">
+			<list>
+				<value>classpath:log4j.xml</value>
+			</list>
+		</property>
+	</bean>
+</beans>

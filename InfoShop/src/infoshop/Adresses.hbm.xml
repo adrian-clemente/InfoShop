@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-abr-2009 23:18:09 by Hibernate Tools 3.2.4.CR1 -->
+<hibernate-mapping>
+    <class name="infoshop.Adresses" table="adresses" catalog="infoshop_schema" >
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="users" class="infoshop.Users" fetch="select" >
+            <column name="USER_ID" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="45" not-null="true" />
+        </property>
+        <property name="number" type="int">
+            <column name="NUMBER" not-null="true" />
+        </property>
+        <property name="country" type="string">
+            <column name="COUNTRY" length="50" not-null="true" />
+        </property>
+        <property name="cp" type="int">
+            <column name="CP" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+  <tiles-definitions>  
+  
+    <definition name=".principal" path="/WEB-INF/Plantillas/plantilla.jsp">
+        <put name="cabecera" value="/WEB-INF/Contenido/cabecera.jsp"/>
+        <put name="logo" value="/WEB-INF/Contenido/logo.jsp"/>
+        <put name="menu" value="/WEB-INF/Contenido/menu.jsp"/>
+        <put name="errores" value=""/>
+		<put name="contenido" value=""/>
+		<put name="pie" value="/WEB-INF/Contenido/pie.jsp"/>
+    </definition>
+    
+    <definition name=".index"  extends=".principal">
+		<put name="contenido" value="/WEB-INF/Contenido/index.jsp"/>
+    </definition>
+    
+    <definition name=".registro"  extends=".principal">
+    	<put name="errores" value="/WEB-INF/Contenido/errores.jsp"/>
+		<put name="contenido" value="/WEB-INF/Contenido/registro.jsp"/>
+    </definition>
+    
+     <definition name=".error" extends=".principal">
+		<put name="contenido" value="/WEB-INF/Contenido/error.jsp"/>
+    </definition>
+    
+     <definition name=".productos" extends=".principal">
+		<put name="contenido" value="/WEB-INF/Contenido/productos.jsp"/>
+    </definition>
+    
+
+</tiles-definitions>
+

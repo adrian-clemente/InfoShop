@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+          
+<struts-config>
+
+    <form-beans>
+     	<form-bean name="DatosAcceso" type="beans.DatosAcceso"></form-bean>
+     	<form-bean name="DatosRegistro" type="beans.DatosRegistro"></form-bean>
+    </form-beans>
+
+    <global-exceptions>
+   	 	<exception
+			handler="exceptions.DefaultExceptionHandler"
+			type="exceptions.BusinessException"
+			key="error.default" 
+			path=".error" 
+			scope="request" />
+   
+        <exception
+			handler="exceptions.DefaultExceptionHandler"
+			type="java.lang.Throwable" 
+			key="error.acceso" 
+			path=".error"
+			scope="request" />
+    </global-exceptions>
+  
+ 
+	<global-forwards> 
+		<forward name="registro" path="/LinkRegistro.do"/>
+		<forward name="inicio" path=".index"/>
+		<forward name="error" path=".error"/>
+		<forward name="productos" path="/WEB-INF/Contenido/productos.jsp"/>
+		<forward name="security" path="/j_spring_security_check" redirect='false'/>
+    </global-forwards>
+    
+    <action-mappings>
+       
+       	<action path="/LinkRegistro" parameter=".registro" type="org.apache.struts.actions.ForwardAction"> </action>
+   
+    	<action name="Productos" path="/Productos" type="actions.Productos" scope="request"></action>
+    
+	   	<action name="DatosAcceso" path="/Acceso" type="actions.Acceso" parameter="reqCode"></action>
+
+	   	<action name="Error" path="/Error" type="actions.Error" scope="request"></action>
+	   	
+	   	<action name="DatosRegistro" path="/Registro" type="actions.Registro" scope="request" input="/LinkRegistro.do"></action>
+	   	
+	   	<action path="/Lenguaje" type="actions.Lenguaje" name="lenguaje"></action>
+	   	
+    </action-mappings>
+       
+    <controller processorClass="org.springframework.web.struts.DelegatingTilesRequestProcessor"/>
+
+	<message-resources parameter="ApplicationResources"/>
+	
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">  
+    	<set-property property="contextConfigLocation"  value="/WEB-INF/classes/applicationContext-Services.xml" />  
+    </plug-in>  
+    
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+   		<set-property property="definitions-config" value="/WEB-INF/Struts/tiles-defs.xml" />
+    	<set-property property="moduleAware" value="true" />
+    </plug-in> 
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    	<set-property property="pathnames" value="/WEB-INF/Struts/validator-rules.xml,/WEB-INF/Struts/validation.xml"/>
+    </plug-in>
+
+ 
+
+</struts-config>

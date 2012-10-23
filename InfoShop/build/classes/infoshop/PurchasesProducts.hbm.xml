@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-abr-2009 23:18:09 by Hibernate Tools 3.2.4.CR1 -->
+<hibernate-mapping>
+    <class name="infoshop.PurchasesProducts" table="purchases_products" catalog="infoshop_schema">
+        <composite-id name="id" class="infoshop.PurchasesProductsId">
+            <key-property name="purchaseId" type="long">
+                <column name="PURCHASE_ID" />
+            </key-property>
+            <key-property name="productId" type="long">
+                <column name="PRODUCT_ID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="purchases" class="infoshop.Purchases" update="false" insert="false" fetch="select">
+            <column name="PURCHASE_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="products" class="infoshop.Products" update="false" insert="false" fetch="select">
+            <column name="PRODUCT_ID" not-null="true" />
+        </many-to-one>
+        <property name="quantity" type="int">
+            <column name="QUANTITY" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

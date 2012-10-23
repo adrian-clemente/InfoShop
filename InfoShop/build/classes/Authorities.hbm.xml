@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-ene-2009 14:09:34 by Hibernate Tools 3.2.4.CR1 -->
+<hibernate-mapping>
+    <class name="models.Authorities" table="authorities" catalog="database">
+        <composite-id name="id" class="models.AuthoritiesId">
+            <key-property name="username" type="string">
+                <column name="username" length="20" />
+            </key-property>
+            <key-property name="authority" type="string">
+                <column name="authority" length="50" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="users" class="models.User" update="false" insert="false" fetch="select">
+            <column name="username" length="20" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

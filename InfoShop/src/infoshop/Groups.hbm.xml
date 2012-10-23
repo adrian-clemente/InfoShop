@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-abr-2009 23:18:09 by Hibernate Tools 3.2.4.CR1 -->
+<hibernate-mapping>
+    <class name="infoshop.Groups" table="groups" catalog="infoshop_schema">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="groupsAuthorities" class="infoshop.GroupsAuthorities" fetch="select">
+            <column name="AUTHORITY" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="50" not-null="true" unique="true" />
+        </property>
+        <set name="userses" inverse="true" >
+            <key>
+                <column name="USER_GROUP" not-null="true" />
+            </key>
+            <one-to-many class="infoshop.Users" />
+        </set>
+    </class>
+</hibernate-mapping>
